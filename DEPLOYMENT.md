@@ -62,3 +62,16 @@ Since we removed `lib/firebase_options.dart` from git for security, we need to p
 
 - Open the deployment URL provided by Coolify.
 - Check the browser console (F12) to ensure there are no Firebase initialization errors.
+
+## Coolify Configuration Reference
+
+Use these settings in your Coolify dashboard:
+
+| Setting | Value | Note |
+| :--- | :--- | :--- |
+| **Build Pack** | `Dockerfile` | |
+| **Port Exposes** | `80` | **Important**: Do not use 3000. Nginx serves on port 80. |
+| **dockerfile Location** | `/Dockerfile` | |
+| **Pre-deployment Command** | *Empty* | Clear any default PHP commands. |
+| **Post-deployment Command** | *Empty* | Clear any default PHP commands. |
+| **Environment Variables** | `FIREBASE_OPTIONS_BASE64` | Set this in the "Environment Variables" tab. Check **"Build Variable"**. |
