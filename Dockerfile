@@ -10,6 +10,10 @@ RUN flutter pub get
 # Copy the rest of the application
 COPY . .
 
+# Decode secret file from env variable
+ARG FIREBASE_OPTIONS_BASE64
+RUN echo "$FIREBASE_OPTIONS_BASE64" | base64 -d > lib/firebase_options.dart
+
 # Build the web application
 RUN flutter build web --release
 
