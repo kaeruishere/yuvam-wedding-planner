@@ -1,21 +1,7 @@
 # Stage 1: Build the Flutter Web App
-FROM ghcr.io/cirruslabs/flutter:stable AS build
-
-WORKDIR /app
-
-# Copy pubspec files first to cache dependencies
-COPY pubspec.* ./
-RUN flutter pub get
-
-# Copy the rest of the application
-COPY . .
-
-# Decode secret file from env variable
-ARG FIREBASE_OPTIONS_BASE64
-RUN echo "$FIREBASE_OPTIONS_BASE64" | base64 -d > lib/firebase_options.dart
-
-# Build the web application
-RUN flutter build web --release --base-href /
+FROM ghcr.io/cirruslabs/flutter:3.24.3 AS build
+# ... (intermediate lines) ...
+RUN flutter build web --release --web-renderer html --base-href /
 
 # Stage 2: Serve with Nginx
 FROM nginx:alpine
