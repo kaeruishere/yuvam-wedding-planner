@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 
 # Install Flutter specific version
 WORKDIR /usr/local
-RUN git clone https://github.com/flutter/flutter.git -b 3.24.3
+RUN git clone https://github.com/flutter/flutter.git -b stable
 
 # Add flutter to path
 ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
@@ -37,7 +37,7 @@ ARG FIREBASE_OPTIONS_BASE64
 RUN echo "$FIREBASE_OPTIONS_BASE64" | base64 -d > lib/firebase_options.dart
 
 # Build the web application
-RUN flutter build web --release --web-renderer html --base-href /
+RUN flutter build web --release --base-href /
 
 # Stage 2: Serve with Nginx
 FROM nginx:alpine
