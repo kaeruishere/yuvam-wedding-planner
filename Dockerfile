@@ -15,8 +15,7 @@ ARG FIREBASE_OPTIONS_BASE64
 RUN echo "$FIREBASE_OPTIONS_BASE64" | base64 -d > lib/firebase_options.dart
 
 # Build the web application
-# Önce renderer'ı belirtelim, sonra release modunu
-RUN flutter build web --web-renderer html --release
+RUN flutter build web --release
 
 # Stage 2: Serve with Nginx
 FROM nginx:alpine
