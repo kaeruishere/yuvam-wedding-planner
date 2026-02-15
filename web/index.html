@@ -23,7 +23,17 @@
 
 <body>
   <script>
-    // Force HTML renderer for iOS compatibility
+    // Global error handler to debug white screen on iOS
+    window.onerror = function (message, source, lineno, colno, error) {
+      alert("Error: " + message + "\nSource: " + source + "\nLine: " + lineno);
+      return false;
+    };
+    window.onunhandledrejection = function (event) {
+      alert("Unhandled Rejection: " + event.reason);
+    };
+
+    // Force HTML renderer for iOS compatibility (Both new and old styles)
+    window.flutterWebRenderer = "html";
     window.flutterConfiguration = {
       renderer: "html",
     };
