@@ -32,9 +32,14 @@ void main() async {
   );
   
   // Init Notifications
-  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  await NotificationService().initialize();
-  
+  // Init Notifications (Safeguarded)
+  try {
+    FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+    await NotificationService().initialize();
+  } catch (e) {
+    print("Error initializing notifications: $e");
+  }
+
   runApp(const YuvamApp()); // Reverted to YuvamApp as the class name is YuvamApp
 }
 
