@@ -23,7 +23,7 @@ ARG FIREBASE_OPTIONS_BASE64
 RUN if [ -n "$FIREBASE_OPTIONS_BASE64" ]; then echo "$FIREBASE_OPTIONS_BASE64" | base64 -d > lib/firebase_options.dart; fi
 
 # [ÖNEMLİ-2] --web-renderer html bayrağı ile build al (iOS Çözümü)
-RUN flutter build web --release --base-href / --web-renderer html
+RUN flutter build web --release --base-href /
 
 # Stage 2: Serve
 FROM nginx:alpine
