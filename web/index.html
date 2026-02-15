@@ -22,6 +22,8 @@
 </head>
 
 <body>
+  <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+  <script>eruda.init();</script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.getRegistrations().then(function (registrations) {
@@ -34,8 +36,9 @@
   <script>
     // Global error handler
     window.onerror = function (message, source, lineno, colno, error) {
-      document.body.innerHTML = "<h1>Error: " + message + "</h1>"; // Fallback if alert fails
-      alert("Error: " + message);
+      console.error("Global Error Caught:", message, source, lineno, colno, error);
+      // Also alert for visibility if console is not open
+      alert("Error: " + message + "\n" + (error ? error.stack : "no stack"));
     };
 
     // Force HTML renderer
