@@ -20,9 +20,9 @@ RUN flutter config --no-analytics && \
 
 WORKDIR /app
 
-RUN flutter pub get
-
 COPY . .
+
+RUN flutter pub get
 
 ARG FIREBASE_OPTIONS_BASE64
 RUN echo "$FIREBASE_OPTIONS_BASE64" | base64 -d > lib/firebase_options.dart
