@@ -15,34 +15,35 @@ class NotificationService {
 
   bool _isInitialized = false;
 
-  Future<void> initialize() async {
-    if (_isInitialized) return;
+  try {
+      // 0. Init Timezones
+      tz.initializeTimeZones();
 
-    // 0. Init Timezones
-    tz.initializeTimeZones();
+      // 1. Request Permissions
+      await _requestPermissions();
 
-    // 1. Request Permissions
-    await _requestPermissions();
+      // 2. Init Local Notifications
+      const androidSettings = AndroidInitializationSettings('@mipmap/ic_launcher');
+      const iosSettings = DarwinInitializationSettings();
+      const initSettings = InitializationSettings(android: androidSettings, iOS: iosSettings);
 
-    // 2. Init Local Notifications
-    const androidSettings = AndroidInitializationSettings('@mipmap/ic_launcher');
-    const iosSettings = DarwinInitializationSettings();
-    const initSettings = InitializationSettings(android: androidSettings, iOS: iosSettings);
+      await _localNotifications.initialize(
+        settings: initSettings,
+        onDidReceiveNotificationResponse: (details) {
+          // Handle notification tap
+        },
+      );
 
-    await _localNotifications.initialize(
-      settings: initSettings,
-      onDidReceiveNotificationResponse: (details) {
-        // Handle notification tap
-      },
-    );
+      // 3. Init FCM
+      // Foreground handler
+      FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+        _showForegroundNotification(message);
+      });
 
-    // 3. Init FCM
-    // Foreground handler
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      _showForegroundNotification(message);
-    });
-
-    _isInitialized = true;
+      _isInitialized = true;
+    } catch (e) {
+      print("NotificationService initialization failed: $e");
+    }
   }
 
   Future<void> _requestPermissions() async {
