@@ -12,7 +12,7 @@ Temel Özellikler
 
     Motivasyonel Notlar: Partnerlerin ana ekran üzerinden birbirlerine bırakabildiği dijital notlar.
 
-    Modern Deneyim: Karanlık/Aydınlık mod desteği ve Türkçe/İngilizce dil seçenekleri.
+    Modern Deneyim: Material3 Karanlık/Aydınlık mod desteği ve Türkçe/İngilizce dil seçenekleri.
 
 Teknolojiler
 
@@ -27,7 +27,3 @@ Teknolojiler
         Authentication: Güvenli kullanıcı girişi.
 
         Cloud Functions & Messaging: Anlık bildirimler.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
