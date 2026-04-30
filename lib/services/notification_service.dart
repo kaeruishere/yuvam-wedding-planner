@@ -15,7 +15,10 @@ class NotificationService {
 
   bool _isInitialized = false;
 
-  try {
+  Future<void> initialize() async {
+    if (_isInitialized) return;
+
+    try {
       // 0. Init Timezones
       tz.initializeTimeZones();
 

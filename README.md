@@ -1,89 +1,32 @@
-# Yuvam 🏠
+📱 Proje Hakkında: Yuvam
 
-**Yuvam** (Turkish for "My Nest") is a comprehensive mobile application designed for couples to plan their future together. From wedding preparations to daily tasks and financial tracking, Yuvam helps partners stay synchronized and organized.
+Yuvam, çiftlerin evlilik hazırlıklarından günlük rutinlerine kadar tüm süreçlerini tek bir yerden, senkronize şekilde yönetmeleri için tasarlanmış kapsamlı bir mobil uygulamadır.
 
-## ✨ Features
+Temel Özellikler
 
-- **❤️ Relationship & Event Tracking**: 
-  - Dynamic countdowns to special events (Engagement, Henna Night, Wedding).
-  - Shared dashboard for couples.
-- **📝 Shared Lists**:
-  - **To-Do List**: Collaborative task management with urgency indicators.
-  - **Shopping List**: Track items to buy for your new home.
-- **💰 Financial Management**:
-  - Track wedding expenses and remaining debts.
-  - Visualize financial status with a shared wallet.
-- **💌 Motivational Notes**: 
-  - Leave sweet notes and messages for your partner on the dashboard.
-- **🎨 Modern UI/UX**:
-  - Beautiful, clean interface with Light and Dark mode support.
-  - Localized in **English** and **Turkish**.
+    Etkinlik Takibi: Düğün, nişan ve kına gecesi gibi özel günler için dinamik geri sayım araçları.
 
-## 🛠️ Tech Stack
+    Ortak Listeler: Çiftlerin birlikte yönetebildiği gelişmiş yapılacaklar ve alışveriş listeleri.
 
-- **Framework**: [Flutter](https://flutter.dev/) (Dart)
-- **Backend**: [Firebase](https://firebase.google.com/)
-  - **Authentication**: Secure user login and signup.
-  - **Firestore**: Real-time database for syncing data between partners.
-  - **Storage**: Media storage for profile photos.
-  - **Cloud Functions & Messaging**: Push notifications for updates.
-- **State Management**: Provider
+    Finansal Yönetim: Düğün masrafları, ortak cüzdan ve borç takibi için özel finans modülü.
 
-## 🚀 Getting Started
+    Motivasyonel Notlar: Partnerlerin ana ekran üzerinden birbirlerine bırakabildiği dijital notlar.
 
-### Prerequisites
+    Modern Deneyim: Karanlık/Aydınlık mod desteği ve Türkçe/İngilizce dil seçenekleri.
 
-- [Flutter SDK](https://docs.flutter.dev/get-started/install) installed.
-- A valid [Firebase Project](https://console.firebase.google.com/).
+Teknolojiler
 
-### Installation
+    Framework: Flutter (Dart)
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/yourusername/yuvam.git
-   cd yuvam
-   ```
+    State Management: Provider
 
-2. **Install dependencies**:
-   ```bash
-   flutter pub get
-   ```
+    Backend: Firebase
 
-3. **Configure Firebase**:
-   - You need to generate `firebase_options.dart` for your project.
-   - Install the FlutterFire CLI:
-     ```bash
-     dart pub global activate flutterfire_cli
-     ```
-   - Run configure command:
-     ```bash
-     flutterfire configure
-     ```
-   - Follow the prompts to select your Firebase project and platforms.
+        Cloud Firestore: Gerçek zamanlı veri senkronizasyonu.
 
-4. **Run the app**:
-   ```bash
-   flutter run
-   ```
+        Authentication: Güvenli kullanıcı girişi.
 
-## 📂 Project Structure
-
-```
-lib/
-├── constants/       # App-wide constants (colors, text)
-├── models/          # Data models (Task, Service, Item)
-├── providers/       # State management (Theme, Language)
-├── screens/         # UI Screens
-│   ├── auth/        # Login/Signup screens
-│   ├── dashboard_screen.dart
-│   └── ...
-├── services/        # Firebase & Business Logic
-└── main.dart        # Entry point
-```
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+        Cloud Functions & Messaging: Anlık bildirimler.
 
 ## 📄 License
 
