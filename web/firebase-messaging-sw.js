@@ -2,7 +2,7 @@ importScripts("https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js");
 importScripts("https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js");
 
 firebase.initializeApp({
-    apiKey: "AIzaSyDKbOefDw68unS9qPDxq5vLAkU_ZO6222A",
+    apiKey: "YOUR_FIREBASE_API_KEY",
     authDomain: "kaeru-yuvam.firebaseapp.com",
     projectId: "kaeru-yuvam",
     storageBucket: "kaeru-yuvam.firebasestorage.app",
